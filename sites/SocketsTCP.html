@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<!--Poner el titulo de la clase-->
+		<title>Sockets TCP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+		<header id="header">
+			<a href="../index.html" class="logo"
+			  ><strong>Computación Paralela y Distribuida</strong></a
+			>
+		  </header>
+
+
+		<!-- Main -->
+			<section id="main">
+				<div class="inner">
+					<!--Usar el siguiente div para poner imagenes en el doc-->
+					<div class="image fit" align="center">
+						<img src="../images/ClienteServidorSockets.jpg" alt="" height="340" />
+					</div>
+					<!--Poner toda la informacion de la clase-->
+					<header>
+						<!--Poner el titulo de la clase-->
+						<h1>Socket TCP</h1>
+						<!--Poner fecha de la clase-->
+						<p class="info">Viernes 29 de Mayo del 2020</p>
+					</header>
+					<!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+					<h1><b><u>Caracteristicas Socket TCP</u></b></h1>
+					<ul>
+ 						<li><b>El cliente debe contactar con el servidor </b>
+  					<ul>
+  							<li>El servidor debe estar ejecutándose primero</li>
+  							<li>El servidor debe haber creado un socket por el que espera que el cliente contacte con él</li>
+  							<li>El cliente crea su propio socket</li>
+							<li>Especifica la dirección IP del servidor y el puerto de la aplicación</li>
+							<li>Entonces se establece la conexión TCP con el servidor</li>
+						
+  					</ul>
+  						</li>
+  						<li> <b>Cuando el servidor es contactado crea un nuevo socket TCP para la comunicación con el cliente</b>
+  					<ul>
+  							<li>Permite que el servidor se comunique con varios clientes simultáneamente</li>
+  							<li>La dirección IP del cliente y el puerto empleado por su aplicación sirven para distringuirlos</li>
+  					</ul>
+  						</li>
+					</ul>
+					<div align="center">
+						<img src="../images/sockettcp.gif">
+					</div>
+					<h1><b><u></br>Caracteristicas Protocolo TCP</u></b></h1>
+					<div align="center">
+					<img src="../images/caracteristicastcp.jpg">
+					</div>
+					<h1><b><u></br>Sockets TCP</u></h1>
+					<ul>
+						<a href="https://docs.oracle.com/javase/8/docs/api/java/net/Socket.html"><h3 ><b><u><li>Sockets CLIENTE</li></u></b></h3> </a>
+ 						<li><b>Clase mas importante= <u>Java.net.Socket </u></b>
+  					<ul>
+  							<li>Cliente para establecer conexión necesita crear un objeto socket</li>
+								<lu>
+									<li><u>Socket s= new Socket("servidor",puerto) </u></li>
+								</lu>
+  							<li><b>Escribe → </b> <u>OutputStream</u></li>
+  							<li><b>Lee → </b> <u>InputStream </u></li>
+							<li><b>Cerrar todo y liberar recursos → </b><u>s.close</u></li>
+						
+  					</ul>
+  						</li>
+					</ul>
+				
+					<h1><b><u></br>Programacion en Red</u></h1>
+					<ul>
+						<a href="https://docs.oracle.com/javase/8/docs/api/java/net/Socket.html"><h3><b><li>Sockets en SERVIDOR</li></b></h3> </a>
+ 						<a href="https://docs.oracle.com/javase/8/docs/api/java/net/Socket.html"><b><u><li>Java.net.Socket </li></u></b></a>
+  					<ul>
+  							<li>ServerSocket serverSocket = new ServerSocket(puerto);</li>
+  							<li>Socket connectionSocket = serverSocket.accept();</li>
+							<b>Prácticamente toda la programación se hace sobre el </b><u>connectionSocket</u><b>, tal como en el Cliente</b>
+							<li><b>Cerrar todo y liberar recursos → </b><u>s.close</u></li>
+  					</ul>
+				
+						<h3><b><li>Leer de un Socket</li></b></h3>
+					 <ul>
+  							<a href="https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html"><b><u><li>java.io.InputStream is = s.getInputStream();</li></u></b></a>
+						 	<p>Esta clase abstracta es la superclase de todas las clases que representan un flujo de entrada de bytes. Devuelve una secuencia de entrada para este socket.</br></p>	
+						 
+				
+						   	<a href="https://docs.oracle.com/javase/7/docs/api/java/util/Scanner.html"><b><u><li>java.util.Scanner scan = new Scanner(is);</li></u></b></a>
+							<p>Un escáner de texto simple que puede analizar tipos y cadenas primitivos utilizando expresiones regulares.</br></p>
+	
+  							<li><b><u>scan.hasNextLine();</u></b></li>
+							<p>Verifica si el Socket esta abierto y puede recibir más información</br></p>
+  					</ul>
+						<h3><b><li>Escribir de un Socket</li></b></h3>
+					 <ul>
+  							<a href="https://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html"><b><u><li>java.io.OutputStream os = s.getOutputStream();</li></u></b></a>
+						 	<p>Esta clase abstracta es la superclase de todas las clases que representan un flujo de bytes de salida. Una secuencia de salida acepta bytes de salida y los envía a algún sumidero.</br></p>
+				
+						   	<a href="https://docs.oracle.com/javase/7/docs/api/java/util/Scanner.html"><b><u><li>java.util.PrintWriter pw = new PrintWriter(os,true);</li></u></b></a>
+							<p>Imprime representaciones formateadas de objetos en una secuencia de salida de texto.</br></p>
+	
+  							<li><b><u>pw.println("mensaje");</u></b></li>
+							<p>Termina la línea actual escribiendo la cadena del separador de línea.</br></p>
+  					</ul>
+
+					</ul>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<p>
+					Trabajo del curso de Computación Paralela y Distribuida <br />
+					<small>Universidad UTE</small>
+				  </p>
+			
+				  <div class="copyright">
+					Design: <a href="https://templated.co">TEMPLATED</a>
+				  </div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/skel.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
