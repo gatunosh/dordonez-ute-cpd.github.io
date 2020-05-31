@@ -27,7 +27,7 @@
 				<div class="inner">
 					<!--Usar el siguiente div para poner imagenes en el doc-->
 					<div class="image fit">
-						<img src="../images/pic11.jpg" alt="" />
+						<img src="file:///C|/Users/User/Documents/GitHub/dordonez-ute-cpd.github.io/images/paralel_principal.jpg" height="350"alt="" />
 					</div>
 					<!--Poner toda la informacion de la clase-->
 					<header>
@@ -39,18 +39,16 @@
 					<!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
                     <ol>
 					<li><a href="Algoritmos_Paralelos.html#two">¿Qué es Computación Paralela?</a></li>
-					<li><a href="paralelismo.html#three">Historia</a></li>
+					
+                    <li><a href="Algoritmos_Paralelos#thirteen">Modelos de Algoritmos Paralelos</a></li>
 					<li><a href="Algoritmos_Paralelos.html#four">Ventajas y desventajas</a></li>
-					<li><a href="paralelismo.html#eighteen">Concurrencia vs Paralelismo</a></li>				
-					<li><a href="paralelismo.html#thirteen">Tipos de paralelismo</a></li>
-					<li><a href="paralelismo.html#twenty">Patrones de control paralelos </a></li>
-					<li><a href="paralelismo.html#seventeen">Paralelizacion Manual vs Automatica</a></li>					
-					<li><a href="paralelismo.html#sixteen">Aplicaciones</a></li>
+									
+					
 									
 				</ol>
-<section id="two" class="wrapper style2 alt">
+<section id="two" class="wrapper style1 alt">
           
-				<h2>¿Que es computación paralela?</h2>
+				<center><b><h2>¿Qué es computación paralela?</h2></b></center>
 				<ul class="checklist">
 					<p>En el sentido más simple, la computación paralela es el uso simultáneo de múltiples recursos computacionales para resolver
 						un problema computacional:
@@ -61,8 +59,89 @@
 					<li>Se emplea un mecanismo global de control/coordinación</li>
 				</ul>
                 </section>
-                
-<section id="four" class="wrapper alt">
+
+	<section id="thirteen" class="wrapper style1 alt">
+		<center><h2>Modelos de Algoritmos Paralelos</h2></center>
+		<div class="inner">
+			<div class="spotlight">
+				<div class="contentmo">
+					<h3>Modelo de datos en paralelo.</h3>
+					<p class="pjustify">
+						Es uno de los modelos más simples. Las tareas son mapeadas en forma estática o semi-estática a los procesadores y cada tarea ejecuta las mismas operaciones sobre diferentes conjuntos de datos. 
+					<br>
+					</p>
+				</div>
+				<div class="contentmo">
+					<center><img src="file:///C|/Users/User/Documents/GitHub/dordonez-ute-cpd.github.io/images/modelo_dato_paralelo.png" height="400" width="500"/></center>
+				</div>
+			</div>
+			<div class="spotlight">
+				<div class="contentmo">
+					<h3>Modelo de grafo de tareas.</h3>
+					<p class="pjustify">
+En todos los algoritmos paralelos, el procesamiento puede ser visto como un grafo de dependencias de tareas. 
+En este modelo, se parte del grafo de dependencias para utilizar las interrelaciones de las mismas en la decisión de la localidad de procesos y datos y de esta manera reducir los costos de interacción.
+Es típicamente utilizado para resolver problemas en donde el volumen de datos asociado con las tareas es mayor que el tamaño del cómputo asociado a las mismas. 
+					</p>
+                   <center> <img src="file:///C|/Users/User/Documents/GitHub/dordonez-ute-cpd.github.io/images/paraleo_grafo.png"/></center>
+					<h4>Productor consumidor o modelo de "Pipeline" </h4>
+					<p>
+						El pipeline proviene de la idea de que en una tubería no es necesario esperar a que todo el agua dentro salga,
+						para que pueda entrar más.
+						Los procesadores modernos tienen un 'pipeline' que separa las instrucciones en varias etapas, donde cada etapa
+						corresponde a una acción diferente que necesita la salida de la anterior.
+					</p>
+				</div>
+				<div class="contentmo">
+					<p>
+						<b>Ejemplo:</b> Un pipeline de 5 etapas: fetch (buscar la instrucción), decode (decodificarla), execute (ejecutarla),
+						write (escribir en memoria el resultado de la operación).
+					</p>
+					<img src="file:///C|/Users/User/Documents/GitHub/dordonez-ute-cpd.github.io/images/pipelining.png">
+					<p>
+						En el gráfico anterior se observa el procesamiento de dos instrucciones sin pipeline, tomando un tiempo de 8 ciclos,
+						y con pipeline reduciendo este tiempo a solo 5 ciclos.
+					</p>
+				</div>
+			</div>
+			<div class="spotlight">
+				<div class="contentmo">
+					<br>
+					<h3>Modelo de "Workpool"</h3>
+					<p class="pjustify">
+El modelo work pool o task pool está caracterizado por el mapeo dinámico de tareas a procesadores para el balance de carga en donde cada tarea puede ser ejecutada potencialmente por cualquier procesador. No hay un mapeo preestablecido de tareas a procesadores. El mapeo puede ser centralizado o descentralizado.
+Normalmente se utiliza este modelo cuando el volumen de datos que debe procesar cada tarea es menor que el procesamiento que debe llevar a cabo la misma. Esto se debe a que las tareas pueden ser reubicadas dinámicamente sin costos altos de interacción de datos (overhead). 
+
+					</p>
+					<center><img src="file:///C|/Users/User/Documents/GitHub/dordonez-ute-cpd.github.io/images/paralelo_grupo_trabajo.png" width="465" height="257"></center>
+					
+				</div>
+				<div class="contentmo">
+					<h3>Modelo maestro esclavo</h3>
+                   <center> <img src="file:///C|/Users/User/Documents/GitHub/dordonez-ute-cpd.github.io/images/paralelo_maestro_esclavo.png"></center>
+					<p class="pjustify">
+En este modelo uno o más procesos distribuyen trabajo (master) entre los workers. El o los procesos master saben que tienen que dar trabajo y los procesos workers saben que necesitan obtener trabajo del master.
+La granularidad de las tareas en este modelo debe ser elegida cuidadosamente, teniendo en cuenta que el costo de realizar cómputo debe dominar al costo de la transferencia de trabajo y de sincronización, pero sin generar tareas demasiado grandes que puedan afectar el balance de carga. 
+					</p>
+					
+				</div>
+			</div>
+		</div>
+        <div class="spotlight">
+	  <div class="contentmo">
+					<br>
+					<h3>Modelo Híbrido"</h3>
+		<p class="pjustify">
+En algunos casos, más de un modelo puede ser aplicado al problema que se quiere resolver, de esta manera se obtiene un modelo híbrido.
+Un modelo híbrido puede estar compuesto tanto por múltiples modelos aplicados jerárquicamente o múltiples modelos aplicados secuencialmente a diferentes fases del algoritmo paralelo. 
+
+
+		  </p>
+				</div>
+	</section>
+
+
+<section id="four" class="wrapper style1 alt">
 		<div class="inner split">
 			<section>
 				<h2>Ventajas</h2>
@@ -86,16 +165,14 @@
 					<li>Retardos ocasionados por comunicación ente tareas</li>
 					<li>Número de componentes usados es directamente proporcional a los fallos potenciales</li>
 					<li>Condiciones de carrera</li>
-					<ul>
-						<li>Múltiples procesos se encuentran en condición de carrera si el resultado de los mismos depende del orden de su llegada
-						</li>
-						<li>Si los procesos que están en condición de carrera no son correctamente sincronizados, puede producirse una corrupción
-							de datos
-						</li>
-					</ul>
+					<li>Múltiples procesos se encuentran en condición de carrera si el resultado de los mismos depende del orden de su llegada.</li>
+					<li>Si los procesos que están en condición de carrera no son correctamente sincronizados, puede producirse una corrupción de datos.</li>
 				</ul>
 			</section>
 	</div></section>
+
+
+
 
                     
                     
