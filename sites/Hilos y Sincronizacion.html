@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<!--Poner el titulo de la clase-->
+		<title>Hilos y Sincronización</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body>
+		<!-- Header -->
+		<header id="header">
+			<a href="../index.html" class="logo">
+				<strong>Computación Paralela y Distribuida</strong>
+			</a>
+		</header>
+
+		<!-- Main -->
+		<section id="main">
+			<div class="inner">
+				<!--Usar el siguiente div para poner imagenes en el doc-->
+				<div class="image fit">
+					<img src="../images/hilosjava.jpg" alt="" />
+				</div>
+				<!--Poner toda la informacion de la clase-->
+				<header>
+					<!--Poner el titulo de la clase-->
+					<h1>Hilos y Sincronización</h1>
+					<!--Poner fecha de la clase-->
+					<p class="info">10 de Mayo de 2020</p>
+				</header>
+				<!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+				<table class="table table-responsive">
+					<thead>
+						<tr>
+							<th><h2 align="left">Secuencial</h2></th>
+							<th><h2 align="left">Concurrente</h2></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<p align="justify" class="card-text">
+									Las instrucciones se ejecutan una tras la otra irremediablemente.<br/>Un solo hilo (thread) de ejecucion.
+								</p>
+							</td>
+							<td>
+								<p align="justify" class="card-text">
+									Varias instrucciones pueden ejecutarse exactamente al mismo tiempo.<br/>Varios hilos de ejecucion.
+								</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<br/>
+				<h2 align="left">Concurrencia y Paralelismo</h2>
+				<table class="table table-responsive">
+					<h3 align="left">Programación Concurrente</h3>
+					<thead>
+						<tr>
+							<th>
+								<h3 align="left">Multitarea</h3>
+							</th>
+							<th>
+								<h3 align="left">Multitarea basada en procesos</h3>
+							</th>
+							<th>
+								<h3 align="left">Multitarea basada en hilos</h3>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Ejecución de varios programas simultaneamente en un equipo</td>
+							<td>Cada programa es un proceso independiente</td>
+							<td>Un programa ejecuta varias tareas simultaneamente</td>
+						</tr>
+					</tbody>
+				</table>
+				<br/>
+				<h2 align="left">Thread (Hilos)</h2>
+				<table class="table table-responsive">
+					<thead>
+						<tr>
+							<th><h3 align="left">Multi-threading</h3></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Los hilos se ejecutan de manera asíncrona en el mismo proceso</td>
+						</tr>
+						<tr>
+							<td>Los hilos comparten en el mismo espacio de memoria del proceso<br/>-Lo cual requiere sincronización para ciertas tareas<br/>-Semáforos, candados, mensajes, ...</td>
+						</tr>
+						<tr>
+							<td>La multitarea basada en procesos está a cargo del sistema operativo (y no de Java)</td>
+						</tr>
+						<tr>
+							<td>La multitarea basada en hilos sí está a cargo de Java (o del entorno de ejecución)</td>
+						</tr>
+						<tr>
+							<td>Java utiliza los hilos para permitir que el sistema sea asíncrono</td>
+						</tr>
+						<tr>
+							<td>Cuántos hilos podemos tener?<br/>-Depende principalmente de...<br/>-El sistema operativo y memoria<br/>-Cuántos hilos de hardware tenemos<br/>-Si los hilos de software realizan tareas:Intensas en uso del CPU, Intensas en I/O</td>
+						</tr>
+						<tr>
+							<td>Sistema operativo y memoria<br/>-Los hilos necesitan memoria: stack<br/>-Con un default de 1 Mb stack por thread (java de 64 bits)<br/>-Y una RAM de 2 Gb para programas<br/>-No podrá tener más de 2000 hilos +/-</td>
+						</tr>
+						<tr>
+							<td>Hilos de hardware y uso del CPU<br/>-Ideal un hilo de software por hilo de hardware<br/>-Dependerá realmente del uso del CPU que haga cada hilo<br/>-hilos_hardware / carga_uso_cpu<br/>-Donde carga_uso_cpu entre:<br/>1 si se usa a full, CPU intensive<br/>-0 si no se usa, I/O intensive</td>
+						</tr>
+					</tbody>
+				</table>
+				<br/>
+				<h2 align="left">Hardware vs. Software threads</h2>
+				<table class="table table-responsive">
+					<thead>
+						<tr>
+							<th>
+								<h3 align="left">Hardware thread</h3>
+							</th>
+							<th>
+								<h3 align="left">Software thread</h3>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Un núcleo (core) físico (sin hyperthreading)  - 1 hilo<br/>-Ej>: i5 4 cores = 4 hardware threads</td>
+							<td>Un núcleo logico (con hyperthreading)  - 1 hilo<br/>-Ej:  i7 4 cores = 8 hardware threads<br/>-Un procesador i7 tiene dos hilos por cada nucleo</td>
+						</tr>
+						<tr>
+							<td>Un flujo de instrucciones secuenciales o path de ejecución (indivisible espontáneamente)<br/>-Ej: for (long i=0; Long.LONG_MAX; i++) {hace}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<p>
+				Trabajo del curso de Computación Paralela y Distribuida <br />
+				<small>Universidad UTE</small>
+			</p>	
+			<div class="copyright">
+				Design: <a href="https://templated.co">TEMPLATED</a>
+			</div>
+		</footer>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/skel.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
